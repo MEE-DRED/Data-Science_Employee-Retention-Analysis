@@ -1,12 +1,13 @@
-Employee Retention Analysis Using Logistic Regression
+# Employee Retention Analysis Using Logistic Regression
 
- Project Overview
+
+ ## Project Overview
 
 Employee attrition is a major challenge for organizations. High turnover increases recruitment costs, reduces productivity, and impacts company performance.
 
 This project performs Exploratory Data Analysis (EDA) and builds a Logistic Regression model to predict whether an employee will leave the company based on key workplace factors.
 
-Objectives
+## Objectives
 
 Perform exploratory data analysis to determine variables impacting employee retention.
 
@@ -18,7 +19,7 @@ Build a Logistic Regression model using selected features.
 
 Measure the accuracy of the model.
 
-Dataset
+## Data
 
 The dataset used: HR Employee Dataset
 
@@ -50,7 +51,9 @@ left = 1 → Employee left
 
 left = 0 → Employee stayed
 
- Exploratory Data Analysis (EDA)
+##  Exploratory Data Analysis
+
+
 1️⃣ Correlation Analysis
 
 A correlation heatmap was generated to identify variables strongly associated with employee attrition.
@@ -83,7 +86,7 @@ Certain departments (e.g., sales, technical) showed higher turnover.
 
 Management and higher-paying departments showed lower attrition.
 
- Model Building
+ ## Model Building
 
 A Logistic Regression model was used because:
 
@@ -103,7 +106,8 @@ Trained Logistic Regression model.
 
 Evaluated performance using accuracy score.
 
- Model Performance
+ ## Model Performance
+
 
 Model Accuracy: ~75% – 80%
 
@@ -117,7 +121,7 @@ Classification Report
 
 The model performs reasonably well in predicting employee attrition.
 
- Technologies Used
+ ## Technologies Used
 
 Python
 
@@ -133,7 +137,7 @@ Scikit-learn
 
 Google Colab
 
- How to Run This Project
+## How to Run
 
 Clone the repository:
 
@@ -146,14 +150,14 @@ Ensure the dataset file is available in the project directory.
 
 Run all cells sequentially.
 
- Project Structure
+## Project Structure
 employee-retention-project/
 │
 ├── HR_comma_sep 1.csv
 ├── employee_retention.ipynb
 └── README.md
 
- Conclusion
+## Conclusion
 
 This project demonstrates how data analysis and machine learning can help organizations:
 
@@ -165,6 +169,6 @@ Develop better retention strategies
 
 By leveraging predictive analytics, companies can proactively reduce turnover and improve workforce stability.
 
- Author
+ ## Author
 
 Mildred Ewenrim Ebomah
