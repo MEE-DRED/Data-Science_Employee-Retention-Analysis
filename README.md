@@ -1,117 +1,170 @@
-# Data-Science-Women-Techster
-Salary Prediction Using Multiple Linear Regression
-Project Overview
+Employee Retention Analysis Using Logistic Regression
 
-This project builds a Machine Learning model to help an HR department predict candidate salaries based on:
+ Project Overview
 
-Years of Experience
+Employee attrition is a major challenge for organizations. High turnover increases recruitment costs, reduces productivity, and impacts company performance.
 
-Written Test Score (out of 10)
+This project performs Exploratory Data Analysis (EDA) and builds a Logistic Regression model to predict whether an employee will leave the company based on key workplace factors.
 
-Interview Score (out of 10)
+Objectives
 
-The model uses Multiple Linear Regression to determine salary based on these three features.
+Perform exploratory data analysis to determine variables impacting employee retention.
+
+Analyze the impact of salary on employee retention.
+
+Analyze the relationship between department and employee attrition.
+
+Build a Logistic Regression model using selected features.
+
+Measure the accuracy of the model.
 
 Dataset
 
-File: hiring.csv
+The dataset used: HR Employee Dataset
 
-The dataset contains:
+Main features include:
 
-Column	Description
-experience	Candidate's years of experience (some values written in words)
-test_score(out of 10)	Written test score
-interview_score(out of 10)	Interview score
-salary($)	Salary offered
+satisfaction_level
 
-Data Preprocessing
+last_evaluation
 
-The following preprocessing steps were performed:
+number_project
 
-Converted experience values written in words (e.g., "five", "two") to numeric values
+average_montly_hours
 
-Replaced missing experience values with 0
+time_spend_company
 
-Filled missing test scores using the mean value
+Work_accident
 
-Renamed columns for easier handling
+promotion_last_5years
 
+sales (Department)
 
-Machine Learning Model
+salary
 
-We used:
+left (Target Variable)
 
-LinearRegression (from sklearn)
+Target Variable:
 
+left = 1 → Employee left
 
-The model equation:
+left = 0 → Employee stayed
 
-Salary = b₀ + b₁(Experience) + b₂(Test Score) + b₃(Interview Score)
+ Exploratory Data Analysis (EDA)
+1️⃣ Correlation Analysis
 
+A correlation heatmap was generated to identify variables strongly associated with employee attrition.
 
+Key Findings:
 
-import pandas as pd
-from sklearn.linear_model import LinearRegression
+Employees with low satisfaction levels were more likely to leave.
 
-# Load dataset
-df = pd.read_csv("hiring.csv")
+Higher average monthly hours correlated with higher attrition.
 
-# Rename columns
-df.columns = ['experience', 'test_score', 'interview_score', 'salary']
+Longer time spent in company increased the likelihood of leaving.
 
-# Convert word experience to numbers
-word_to_num = {
-    'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4,
-    'five': 5, 'six': 6, 'seven': 7, 'eight': 8,
-    'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12
-}
+Lack of promotion in the last 5 years increased attrition.
 
-df['experience'] = df['experience'].fillna('zero')
-df['experience'] = df['experience'].apply(lambda x: word_to_num.get(str(x).lower(), x))
+2️⃣ Salary vs Retention
 
-# Fill missing test scores
-df['test_score'] = df['test_score'].fillna(df['test_score'].mean())
+Bar chart analysis showed:
 
-# Define features and target
-X = df[['experience', 'test_score', 'interview_score']]
-y = df['salary']
+Employees with low salary had significantly higher attrition.
 
-# Train model
-model = LinearRegression()
-model.fit(X, y)
+Employees with high salary had lower probability of leaving.
 
-# Predict salaries
-predictions = model.predict([
-    [2, 9, 6],
-    [12, 10, 10]
-])
+This suggests salary is a strong predictor of retention.
 
-predictions
+3️⃣ Department vs Retention
 
+Departmental analysis revealed:
 
+Certain departments (e.g., sales, technical) showed higher turnover.
 
+Management and higher-paying departments showed lower attrition.
 
-Model Predictions
-Experience	Test Score	Interview Score	Predicted Salary ($)
-2	9	6	53,290.89
-12	10	10	92,268.07
+ Model Building
 
+A Logistic Regression model was used because:
 
-Technologies Used
+The target variable (left) is binary.
+
+It is suitable for classification problems.
+
+It provides interpretable results.
+
+Steps Performed:
+
+Converted categorical variables using one-hot encoding.
+
+Split data into training and testing sets (70% / 30%).
+
+Trained Logistic Regression model.
+
+Evaluated performance using accuracy score.
+
+ Model Performance
+
+Model Accuracy: ~75% – 80%
+
+Evaluation Metrics Used:
+
+Accuracy Score
+
+Confusion Matrix
+
+Classification Report
+
+The model performs reasonably well in predicting employee attrition.
+
+ Technologies Used
 
 Python
 
-Google Colab
-
 Pandas
+
+NumPy
+
+Matplotlib
+
+Seaborn
 
 Scikit-learn
 
-Linear Regression
+Google Colab
+
+ How to Run This Project
+
+Clone the repository:
+
+git clone https://github.com/yourusername/employee-retention-project.git
 
 
+Open the notebook in Google Colab or Jupyter Notebook.
 
+Ensure the dataset file is available in the project directory.
 
-Conclusion
+Run all cells sequentially.
 
-The Multiple Linear Regression model successfully predicts salaries based on candidate qualifications. This tool can assist HR departments in making consistent and data-driven salary decisions.
+ Project Structure
+employee-retention-project/
+│
+├── HR_comma_sep 1.csv
+├── employee_retention.ipynb
+└── README.md
+
+ Conclusion
+
+This project demonstrates how data analysis and machine learning can help organizations:
+
+Identify drivers of employee attrition
+
+Improve HR decision-making
+
+Develop better retention strategies
+
+By leveraging predictive analytics, companies can proactively reduce turnover and improve workforce stability.
+
+ Author
+
+Mildred Ewenrim Ebomah
